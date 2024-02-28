@@ -19,3 +19,6 @@ class Doctor(models.Model):
     name = models.CharField(max_length=30)
     speciality = models.CharField(max_length=30, choices=specialities_choices)
     title = models.CharField(max_length=30, choices=title_choices)
+
+    def __str__(self):
+        return self.title + self.name + ', Speciality: ' + self.speciality

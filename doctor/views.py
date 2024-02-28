@@ -1,7 +1,7 @@
 import json
 
 from django.shortcuts import render
-from rest_framework import permissions, status
+from rest_framework import permissions, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -11,7 +11,7 @@ from doctor.serializers import DoctorSerializer
 
 # Create your views here.
 
-class DoctorView(APIView):
+class DoctorView(viewsets.ModelViewSet):
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
     permission_classes = [permissions.AllowAny]
